@@ -69,20 +69,6 @@
 
     @Scripts.Render("~/bundles/jqueryval")
 
-    <script>
-        function ValidarInformacoes() {
-
-            var nome = document.getElementById("Nome").value;
-            let telefone = document.getElementById("Telefone").value;
-
-            if ((nome == "") || (telefone == "")) {
-                alert("Preencha todos os campos.");
-                return false;
-            }
-
-            alert("Adicionado com sucesso.");
-
-            return true;
-        }
-    </script>
+    <script src="@Url.Content("~/Scripts/scripts.js")" type="text/javascript"></script>
+       
 

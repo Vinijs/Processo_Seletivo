@@ -20,6 +20,11 @@ namespace Processo_Seletivo_Programador
             return View(db.Contatos.ToList());
         }
 
+        public ActionResult Listar()
+        {
+            return Json(db.Contatos.ToList(), JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Contatos/Details/5
         public ActionResult Details(int? id)
         {
@@ -32,7 +37,7 @@ namespace Processo_Seletivo_Programador
             {
                 return HttpNotFound();
             }
-            return View(contato);
+            return Json(contato);
         }
 
         // GET: Contatos/Create
@@ -54,15 +59,10 @@ namespace Processo_Seletivo_Programador
 
                 db.Contatos.Add(contato);
                 db.SaveChanges();
-
-                //if((contato.Nome == null) && (contato.Telefone == null))
-                //{
-                //    return "";
-                //}
                 return RedirectToAction("Index");
             }
 
-            return View(contato);
+            return Json(contato);
         }
 
         // GET: Contatos/Edit/5
@@ -99,7 +99,7 @@ namespace Processo_Seletivo_Programador
         }
 
         // GET: Contatos/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult DeleteFiend(int? id)
         {
             if (id == null)
             {
@@ -115,8 +115,8 @@ namespace Processo_Seletivo_Programador
 
         // POST: Contatos/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Delete(int id)
         {
             Contato contato = db.Contatos.Find(id);
             db.Contatos.Remove(contato);
@@ -131,6 +131,17 @@ namespace Processo_Seletivo_Programador
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult BuscarContato(int? id)
+        {
+            Contato contato = db.Contatos.Where(x => x.Id == id).FirstOrDefault();
+            return Json(new
+            {
+                nome = contato.Nome,
+                id = contato.Id,
+                telefone = contato.Telefone
+            });
         }
     }
 }

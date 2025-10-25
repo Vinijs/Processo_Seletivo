@@ -1,0 +1,13 @@
+https://angeloservo.notion.site/Processo-seletivo-programador-55705cef9b664963b37a70be762ef552
+
+Referências Ajax Jquery:
+
+- https://www.youtube.com/watch?v=_q4EN976Wlg
+
+- http://api.jquery.com/jquery.ajax/
+
+- https://www.macoratti.net/15/05/mvc_ajax.htm
+
+- Assistir Hoje - 25/04/2023
+
+- https://www.youtube.com/watch?v=CIoorAY648k
